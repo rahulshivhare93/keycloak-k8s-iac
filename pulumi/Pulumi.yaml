@@ -1,0 +1,37 @@
+name: keycloak-k8s-iac
+runtime: go
+description: >-
+  Automated, reproducible Keycloak deployment on a local k3s (Rancher) Kubernetes
+  cluster using Pulumi + Go. Provisions the cluster, a hardened PostgreSQL backend,
+  Keycloak with a bootstrap admin account, self-signed HTTPS via Ingress, and
+  default-deny NetworkPolicies.
+
+config:
+  keycloak-k8s-iac:clusterName:
+    type: string
+    description: Name of the local k3d cluster to create.
+    default: keycloak-iac
+  keycloak-k8s-iac:namespace:
+    type: string
+    description: Kubernetes namespace Keycloak and PostgreSQL are deployed into.
+    default: keycloak
+  keycloak-k8s-iac:hostname:
+    type: string
+    description: Hostname used for the HTTPS Ingress and Keycloak's public URL.
+    default: keycloak.localhost
+  keycloak-k8s-iac:httpsPort:
+    type: integer
+    description: Host port mapped to the cluster's HTTPS (443) load balancer.
+    default: 8443
+  keycloak-k8s-iac:adminUser:
+    type: string
+    description: Username of the Keycloak bootstrap admin account.
+    default: admin
+  keycloak-k8s-iac:keycloakImage:
+    type: string
+    description: Keycloak container image.
+    default: quay.io/keycloak/keycloak:26.0
+  keycloak-k8s-iac:postgresImage:
+    type: string
+    description: PostgreSQL container image.
+    default: postgres:16-alpine

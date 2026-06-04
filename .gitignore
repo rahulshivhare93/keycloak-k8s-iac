@@ -1,0 +1,19 @@
+# Pulumi local state & secrets (never commit — contains encrypted credentials)
+.pulumi-state/
+Pulumi.*.yaml.bak
+
+# Go
+bin/
+*.test
+*.out
+
+# kubeconfig / local artifacts
+kubeconfig
+*.kubeconfig
+*.log
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
