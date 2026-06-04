@@ -1,6 +1,6 @@
 module github.com/rahulshivhare93/keycloak-k8s-iac
 
-go 1.25.8
+go 1.25.11
 
 require (
 	github.com/pulumi/pulumi-command/sdk v1.2.1
